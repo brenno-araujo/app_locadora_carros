@@ -37653,7 +37653,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "row justify-content-center" }, [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [_vm._v("Login Vue")]),
+            _c("div", { staticClass: "card-header" }, [_vm._v("Login")]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _c("form", { attrs: { method: "POST", action: "" } }, [
