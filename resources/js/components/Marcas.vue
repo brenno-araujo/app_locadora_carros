@@ -1,0 +1,70 @@
+<template>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <!-- Card de busca -->
+        <card-container-component title="Pesquisar marcas">
+          <template v-slot:content>
+            <div class="form-group">
+              <input-container-component
+                title="ID"
+                id="inputId"
+                id-help="idHelp"
+                text-help="Opcional - ID da marca"
+              >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputId"
+                  aria-describedby="idHelp"
+                  placeholder="ID da marca"
+                />
+              </input-container-component>
+            </div>
+
+            <div class="form-group">
+              <input-container-component
+                title="name"
+                id="inputName"
+                id-help="nameHelp"
+                text-help="Opcional - Nome da marca"
+              >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputName"
+                  aria-describedby="nameHelp"
+                  placeholder="Nome da marca"
+                />
+              </input-container-component>
+            </div>
+          </template>
+
+          <template v-slot:footer>
+            <button type="submit" class="btn btn-primary float-right">
+              Pesquisar
+            </button>
+          </template>
+        </card-container-component>
+      </div>
+
+      <!-- Card de listagem -->
+      <div class="col-md-8 mt-5">
+        <card-container-component title="Marcas">
+          <template v-slot:content>
+              <table-container-component></table-container-component>
+          </template>
+
+          <template v-slot:footer>
+              <p>Paginação</p>
+          </template>
+
+        </card-container-component>
+      </div>
+    </div>
+  </div>
+  
+</template>
+
+<script>
+</script>

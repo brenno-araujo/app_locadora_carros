@@ -21,6 +21,21 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Route::get('/teste', function () {
+    return view('welcome');
+});
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/modelos', function () {
+    return view('welcome');
+})->name('modelos');
+
+Route::get('/carros', function () {
+    return view('welcome');
+})->name('carros');
+
+Route::get('/marcas', function () {
+    return view('app.marcas');
+})->name('marcas');
