@@ -65,7 +65,43 @@
             >
               Adicionar
             </button>
-            <modal-component id="createModalMarca" title="Nova marca"></modal-component>
+            <modal-component id="createModalMarca" title="Nova marca">
+              <template v-slot:content>
+                <div class="form-group">
+                  <input-container-component
+                    title="Nome da marca"
+                    id="newMarcaName"
+                  >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="newMarcaName"
+                      placeholder="Nome da marca"
+                    />
+                  </input-container-component>
+                </div>
+
+                <div class="form-group">
+                  <input-container-component
+                    title="Imagem"
+                    id="newImageMarca"
+                  >
+                    <input
+                      type="file"
+                      class="form-control-file"
+                      id="newImageMarca"
+                      placeholder="Selecionar uma imagem PNG"
+                    />
+                  </input-container-component>
+                </div>
+
+              </template>
+
+              <template v-slot:footer>
+                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                       <button type="button" class="btn btn-primary">Salvar</button>
+              </template>
+            </modal-component>
           </template>
 
           <template v-slot:content>

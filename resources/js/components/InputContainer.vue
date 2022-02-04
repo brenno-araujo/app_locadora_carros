@@ -2,7 +2,7 @@
     <div class="form-group">
          <label :for="id">{{title}}</label>
          <slot></slot>
-         <small id="emailHelp" class="form-text text-muted">{{textHelp}}.</small>
+         <small id="emailHelp" class="form-text text-muted">{{textHelp}}</small>
     </div>
 </template>
 
