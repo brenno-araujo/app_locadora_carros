@@ -58,8 +58,8 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate($this->marca->rules(), $this->marca->feedback());
-
+        //$request->validate($this->marca->rules(), $this->marca->feedback());
+        
         $imagem = $request->file('imagem');
         $imagem_urn = $imagem->store('imagens', 'public');
 
@@ -67,6 +67,9 @@ class MarcaController extends Controller
             'nome' => $request->nome,
             'imagem' => $imagem_urn
         ]);
+        
+        $imagem = $request->file('imagem');
+        $imagem_urn = $imagem->store('imagens', 'public');
 
         return response()->json($marca, 201);
     }

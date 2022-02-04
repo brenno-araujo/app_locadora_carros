@@ -77,6 +77,7 @@
                       class="form-control"
                       id="newMarcaName"
                       placeholder="Nome da marca"
+                      v-model="nameMarca"
                     />
                   </input-container-component>
                 </div>
@@ -91,16 +92,17 @@
                       class="form-control-file"
                       id="newImageMarca"
                       placeholder="Selecionar uma imagem PNG"
+                      @change="carregarImagem($event)"
                     />
                   </input-container-component>
                 </div>
-
               </template>
 
               <template v-slot:footer>
                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                       <button type="button" class="btn btn-primary">Salvar</button>
+                       <button type="submit" class="btn btn-primary" @click="save(nameMarca, imageMarca)">Salvar</button>
               </template>
+
             </modal-component>
           </template>
 
@@ -118,4 +120,51 @@
 </template>
 
 <script>
+    export default {
+        computed: {
+            token() {
+
+                let token = document.cookie.split(';').find(indice => {
+                    return indice.includes('token=')
+                })
+                
+                token = token.split('=')[1]
+                token = 'Bearer ' + token
+                return token
+            }
+        },
+        data(){
+            return {
+                urlBase: 'http://localhost:8000/api/v1/marca',
+                nameMarca: '',
+                imageMarca: [],
+            }
+        },
+        methods: {
+            carregarImagem(e){
+                this.imageMarca = e.target.files
+            },
+            save(name, image){
+              let formData = new FormData()
+              formData.append('nome', name)
+              formData.append('imagem', image[0])
+              
+              let config = {
+                  headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json',
+                    'Authorization': this.token
+                  }
+              }
+
+              axios.post(this.urlBase, formData, config)
+                  .then(response => {
+                      console.log(response.data)
+                  })
+                  .catch(errors => {
+                      console.log(errors.response)
+                  })
+            }
+        } 
+    }
 </script>
