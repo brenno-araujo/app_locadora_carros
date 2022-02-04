@@ -1,9 +1,13 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-10">
         <!-- Card de busca -->
-        <card-container-component title="Pesquisar marcas">
+        <card-container-component>
+          <template v-slot:header>
+            <span>Pesquisar marca</span>
+          </template>
+
           <template v-slot:content>
             <div class="form-group">
               <input-container-component
@@ -49,21 +53,32 @@
       </div>
 
       <!-- Card de listagem -->
-      <div class="col-md-8 mt-5">
+      <div class="col-md-10 mt-3">
         <card-container-component title="Marcas">
+          <template v-slot:header>
+            <span>Marcas</span>
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              data-toggle="modal"
+              data-target="#createModalMarca"
+            >
+              Adicionar
+            </button>
+            <modal-component id="createModalMarca" title="Nova marca"></modal-component>
+          </template>
+
           <template v-slot:content>
-              <table-container-component></table-container-component>
+            <table-container-component></table-container-component>
           </template>
 
           <template v-slot:footer>
-              <p>Paginação</p>
+            <p>Paginação</p>
           </template>
-
         </card-container-component>
       </div>
     </div>
   </div>
-  
 </template>
 
 <script>

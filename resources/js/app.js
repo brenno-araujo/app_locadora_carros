@@ -26,6 +26,7 @@ Vue.component('marcas-component', require('./components/Marcas.vue').default);
 Vue.component('input-container-component', require('./components/InputContainer.vue').default);
 Vue.component('table-container-component', require('./components/TableContainer.vue').default);
 Vue.component('card-container-component', require('./components/CardContainer.vue').default);
+Vue.component('modal-component', require('./components/Modal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
